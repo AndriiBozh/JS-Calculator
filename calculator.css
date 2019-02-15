@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(184, 179, 179); 
+    font-family: 'Orbitron', sans-serif;
+}
+
+.calculator {
+    display: grid;
+    height: 30em;
+    max-width: 30em;
+    grid-template-rows: 3em 3em repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    border: 1.5em solid rgb(56, 54, 54); 
+    border-radius: 3px;  
+    /* 'auto' (left-right margin) centers our calculator. For smaller screens (width<550px) we'll replace 'auto' with other values (2em, probably) - so our calculator will not take the total width of the [smartphone] screen */
+    margin: 5em auto 0;    
+}
+
+.display {
+    font-size: 2rem;
+    padding-right: 10px;
+    background-color: rgb(31, 7, 7);
+    color: white;
+    /* the next three rules will align our items: */
+    /* 1) */
+    display: flex;
+    /* 2) center items */
+    align-items: center;
+    /* 3) place items at the right */
+    justify-content: flex-end;    
+}
+
+.input-display {    
+    grid-row: 1 / 2;
+    grid-column: 1 / 5;  
+    border-bottom: 1px solid grey;     
+}
+
+.output-display {
+    grid-row: 2 / 3;
+    grid-column: 1 / 5;      
+}
+
+.button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;    
+    color: white;
+    border: 0.3px solid rgb(192, 190, 190);
+    transition: ease-in-out, 0.3s;
+}
+
+.number, .decimal-button, .equals-button {
+    background-color: rgb(73, 70, 70);    
+}
+
+.number:hover, 
+.decimal-button:hover, 
+.equals-button:hover {
+    background-color: rgb(56, 54, 54);  
+}
+
+.number:active, 
+.decimal-button:active, 
+.equals-button:active {
+    background-color: rgba(56, 54, 54, 0.3);  
+}
+
+#four, #five, #six {
+    grid-row: 4 / 5;
+}
+
+#seven, #eight, #nine {
+    grid-row: 5 / 6;
+}
+
+#zero {
+    grid-row: 6 / 7;
+    grid-column: 2 / 3;
+}
+
+#decimal {
+    grid-row: 6 / 7;
+}
+
+#equals {
+    grid-row: 6 / 7;
+    grid-column: 3 / 4;
+}
+
+.math-operator {
+    background-color: rgb(107, 104, 104);
+}
+
+.math-operator:hover {
+    background-color: rgb(97, 87, 87);
+}
+
+/* change button color onclick */
+.math-operator:active {
+    background-color: rgba(97, 87, 87, 0.2);
+}
+
+.clear-button {
+    grid-column: 1 / 5;
+    background-color: rgb(233, 50, 50);    
+}
+
+.clear-button:hover {
+    background-color: rgb(182, 23, 23);
+}
+
+.clear-button:active {
+    background-color: rgba(182, 23, 23, 0.4);
+}
+
+.footer {
+    margin: 3em 0;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 1.6;
+}
+
+.footer span {    
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@media (max-width: 550px) {
+    .calculator {
+        margin: 5em 1em 0;  
+        border: 1em solid rgb(56, 54, 54); 
+    }
+
+    .display {
+        font-size: 1.7rem;
+    }
+}
